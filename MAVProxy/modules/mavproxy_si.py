@@ -11,7 +11,7 @@ Procedure to start safely:
 import os, struct
 from time import sleep
 
-mpstate = None
+#mpstate = None
 
 from pymavlink import mavutil
 from MAVProxy.modules.lib import mp_module
@@ -52,10 +52,10 @@ class SI(mp_module.MPModule):
         manual_control[3] = control_packet["roll"] # rc4
         """
 
-        manual_control[0] = self.rc1_min
-        manual_control[1] = self.rc2_min
-        manual_control[2] = (self.rc3_min + self.rc3_max) / 2 # send half throttle
-        manual_control[3] = self.rc4_min
+        manual_control[0] = -1000
+        manual_control[1] = -1000
+        manual_control[2] = 0 # send half throttle (range is -1000 - 1000)
+        manual_control[3] = -1000
 
         self.master.mav.manual_control_send(self.target_system,
                                                        self.target_component,

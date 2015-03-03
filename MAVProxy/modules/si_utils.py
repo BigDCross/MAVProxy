@@ -1,4 +1,4 @@
-def map_range(self, x, in_min, in_max, out_min, out_max):
+def map_range(x, in_min, in_max, out_min, out_max):
     """
     Maps an input with a specified input range to a specified output range
 
